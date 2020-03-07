@@ -28,7 +28,7 @@ async function initDb() {
                 console.log('DB dropped');
             }
         } catch(err) {
-            console.log('Collection not found');
+            console.log('Collection not found', err);
         }
         console.log('Inserting beers');
         beers.forEach( async (beerName) => {
@@ -39,7 +39,7 @@ async function initDb() {
         return process.exit(0);
     }
     catch(err) {
-        console.log(err);
+        console.log('InitDb error', err);
         return process.exit(0);
     }
 } 
