@@ -21,13 +21,13 @@ async function initDb() {
     try {
         client = await MongoClient.connect(url);
         const db = client.db(dbName);
-        if (db.db.collection('beers')) {
-            let dropped = await db.db.collection('beers').drop();
+        if (db.collection('beers')) {
+            let dropped = await db.collection('beers').drop();
             console.log('DB dropped');
         }
         beers.forEach( async (beerName) => {
             let beer = require(`./step-05/beers/${beerName}.json`);
-            let inserted = await db.db.collection('beers').insert(beer);
+            let inserted = await db.collection('beers').insert(beer);
             console.log(`Beer ${beerName} inserted`);
         });
     }
