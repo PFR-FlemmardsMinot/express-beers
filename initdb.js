@@ -27,7 +27,7 @@ async function initDb() {
                 console.log('DB dropped');
             }
         } catch(err) {
-            console.log('Collection not found')
+            console.log('Collection not found');
         }
         beers.forEach( async (beerName) => {
             let beer = require(`./step-05/beers/${beerName}.json`);
@@ -38,6 +38,7 @@ async function initDb() {
     catch(err) {
         console.log(err);
     }
+    return process.exit(0);
 } 
 
 initDb();
