@@ -27,7 +27,7 @@ async function initDb() {
         }
         beers.forEach( async (beerName) => {
             let beer = require(`./step-05/beers/${beerName}.json`);
-            let inserted = await db.collection('beers').insert(beer);
+            let inserted = await db.collection('beers').insertOne(beer);
             console.log(`Beer ${beerName} inserted`);
         });
     }
